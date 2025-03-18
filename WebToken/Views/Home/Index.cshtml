@@ -2,23 +2,26 @@
     ViewData["Title"] = "Home Page";
 }
 
-  <form action="" method="post">
-<div class="h-screen w-full bg-gradient-to-r from-purple-900 to-pink-900 flex justify-center items-center ">
-    <div class="h-80 w-80 bg-white/40 backdrop-filter backdrop-blur rounded-lg  flex justify-center items-center grid grid-rows-4 gap-4 ">
-        
-        <div class=" grid grid-rows-2 gap-4 row-span-2 w-50 mt-5">
-            <input type="email" class="bg-white p-1  text-sm" placeholder="Username"> 
-            <input  type="password" class="bg-white p-1 text-sm" placeholder="Password">
-        </div>
-        <div class="row-span-1 text-md text-white flex justify-center items-center gap-1 mb-4">
-            <a href="/register"> Henüz kayıtlı değil misiniz?</a>
-        </div>
-        <div class="  row-span-1 flex justify-center items-center mb-5">
-            <button class="bg-green-900 px-6 py-1 text-white rounded-full">Login</button>
-        </div>
-        
+
+<div
+    class="h-screen w-full bg-gradient-to-r from-purple-900 to-pink-900 flex justify-center items-center flex-col ">
+ <form id="userForm">
+    <div
+        class="h-80 w-80 bg-white/40 backdrop-filter backdrop-blur rounded-lg  flex justify-center items-center grid grid-rows-4 gap-4 ">
+       
+            <div class=" grid grid-rows-2 gap-4 row-span-2 w-50 mt-5">
+                <input type="text" name="Username" id="username" class="bg-white p-1  text-sm" placeholder="Username">
+                <input type="password" name="Password" id="password" class="bg-white p-1 text-sm"
+                    placeholder="Password">
+            </div>
+            <div class="row-span-1 text-md text-white flex justify-center items-center gap-1 mb-4">
+                <a href="/register"> Henüz kayıtlı değil misiniz?</a>
+            </div>
+            <div class="  row-span-1 flex justify-center items-center mb-5">
+                <button type="submit" class="bg-green-900 px-6 py-1 text-white rounded-full">Login</button>
+            </div>
+       
     </div>
-    </form>
-    
-   
-    
+     </form>
+    <p id="result" class="text-white text-md text-center w-1/2"></p>
+</div>
