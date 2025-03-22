@@ -1,0 +1,224 @@
+{
+  "Version": 1,
+  "WorkspaceRootPath": "C:\\Users\\Public\\token_system\\",
+  "Documents": [
+    {
+      "AbsoluteMoniker": "D:0:0:{8E4F9BF5-DD19-456E-B176-1AEAD2F19A64}|WebToken\\WebToken.csproj|c:\\users\\public\\token_system\\webtoken\\models\\appdbcontext.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{8E4F9BF5-DD19-456E-B176-1AEAD2F19A64}|WebToken\\WebToken.csproj|solutionrelative:webtoken\\models\\appdbcontext.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{8E4F9BF5-DD19-456E-B176-1AEAD2F19A64}|WebToken\\WebToken.csproj|c:\\users\\public\\token_system\\webtoken\\appsettings.json||{90A6B3A7-C1A3-4009-A288-E2FF89E96FA0}",
+      "RelativeMoniker": "D:0:0:{8E4F9BF5-DD19-456E-B176-1AEAD2F19A64}|WebToken\\WebToken.csproj|solutionrelative:webtoken\\appsettings.json||{90A6B3A7-C1A3-4009-A288-E2FF89E96FA0}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{8E4F9BF5-DD19-456E-B176-1AEAD2F19A64}|WebToken\\WebToken.csproj|c:\\users\\public\\token_system\\webtoken\\program.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{8E4F9BF5-DD19-456E-B176-1AEAD2F19A64}|WebToken\\WebToken.csproj|solutionrelative:webtoken\\program.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{8E4F9BF5-DD19-456E-B176-1AEAD2F19A64}|WebToken\\WebToken.csproj|c:\\users\\public\\token_system\\webtoken\\models\\applicationuser.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{8E4F9BF5-DD19-456E-B176-1AEAD2F19A64}|WebToken\\WebToken.csproj|solutionrelative:webtoken\\models\\applicationuser.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{8E4F9BF5-DD19-456E-B176-1AEAD2F19A64}|WebToken\\WebToken.csproj|c:\\users\\public\\token_system\\webtoken\\services\\tokenservice.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{8E4F9BF5-DD19-456E-B176-1AEAD2F19A64}|WebToken\\WebToken.csproj|solutionrelative:webtoken\\services\\tokenservice.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{8E4F9BF5-DD19-456E-B176-1AEAD2F19A64}|WebToken\\WebToken.csproj|c:\\users\\public\\token_system\\webtoken\\models\\tokenresponse.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{8E4F9BF5-DD19-456E-B176-1AEAD2F19A64}|WebToken\\WebToken.csproj|solutionrelative:webtoken\\models\\tokenresponse.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{8E4F9BF5-DD19-456E-B176-1AEAD2F19A64}|WebToken\\WebToken.csproj|c:\\users\\public\\token_system\\webtoken\\models\\yourmodel.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{8E4F9BF5-DD19-456E-B176-1AEAD2F19A64}|WebToken\\WebToken.csproj|solutionrelative:webtoken\\models\\yourmodel.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{8E4F9BF5-DD19-456E-B176-1AEAD2F19A64}|WebToken\\WebToken.csproj|c:\\users\\public\\token_system\\webtoken\\services\\authservice.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{8E4F9BF5-DD19-456E-B176-1AEAD2F19A64}|WebToken\\WebToken.csproj|solutionrelative:webtoken\\services\\authservice.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{8E4F9BF5-DD19-456E-B176-1AEAD2F19A64}|WebToken\\WebToken.csproj|c:\\users\\public\\token_system\\webtoken\\controllers\\yourmodelcontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{8E4F9BF5-DD19-456E-B176-1AEAD2F19A64}|WebToken\\WebToken.csproj|solutionrelative:webtoken\\controllers\\yourmodelcontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{8E4F9BF5-DD19-456E-B176-1AEAD2F19A64}|WebToken\\WebToken.csproj|c:\\users\\public\\token_system\\webtoken\\controllers\\authcontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{8E4F9BF5-DD19-456E-B176-1AEAD2F19A64}|WebToken\\WebToken.csproj|solutionrelative:webtoken\\controllers\\authcontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{8E4F9BF5-DD19-456E-B176-1AEAD2F19A64}|WebToken\\WebToken.csproj|c:\\users\\public\\token_system\\webtoken\\controllers\\homecontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{8E4F9BF5-DD19-456E-B176-1AEAD2F19A64}|WebToken\\WebToken.csproj|solutionrelative:webtoken\\controllers\\homecontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{8E4F9BF5-DD19-456E-B176-1AEAD2F19A64}|WebToken\\WebToken.csproj|c:\\users\\public\\token_system\\webtoken\\controllers\\registercontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{8E4F9BF5-DD19-456E-B176-1AEAD2F19A64}|WebToken\\WebToken.csproj|solutionrelative:webtoken\\controllers\\registercontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    }
+  ],
+  "DocumentGroupContainers": [
+    {
+      "Orientation": 0,
+      "VerticalTabListWidth": 256,
+      "DocumentGroups": [
+        {
+          "DockedWidth": 200,
+          "SelectedChildIndex": 3,
+          "Children": [
+            {
+              "$type": "Document",
+              "DocumentIndex": 4,
+              "Title": "TokenService.cs",
+              "DocumentMoniker": "C:\\Users\\Public\\token_system\\WebToken\\Services\\TokenService.cs",
+              "RelativeDocumentMoniker": "WebToken\\Services\\TokenService.cs",
+              "ToolTip": "C:\\Users\\Public\\token_system\\WebToken\\Services\\TokenService.cs",
+              "RelativeToolTip": "WebToken\\Services\\TokenService.cs",
+              "ViewState": "AQIAAAAAAAAAAAAAAAAAAEQAAAAAAAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-03-22T08:48:10.558Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 8,
+              "Title": "YourModelController.cs",
+              "DocumentMoniker": "C:\\Users\\Public\\token_system\\WebToken\\Controllers\\YourModelController.cs",
+              "RelativeDocumentMoniker": "WebToken\\Controllers\\YourModelController.cs",
+              "ToolTip": "C:\\Users\\Public\\token_system\\WebToken\\Controllers\\YourModelController.cs",
+              "RelativeToolTip": "WebToken\\Controllers\\YourModelController.cs",
+              "ViewState": "AQIAACEAAAAAAAAAAAAowDYAAAAAAAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-03-22T08:05:47.459Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 3,
+              "Title": "ApplicationUser.cs",
+              "DocumentMoniker": "C:\\Users\\Public\\token_system\\WebToken\\Models\\ApplicationUser.cs",
+              "RelativeDocumentMoniker": "WebToken\\Models\\ApplicationUser.cs",
+              "ToolTip": "C:\\Users\\Public\\token_system\\WebToken\\Models\\ApplicationUser.cs",
+              "RelativeToolTip": "WebToken\\Models\\ApplicationUser.cs",
+              "ViewState": "AQIAAAAAAAAAAAAAAAAAAAwAAAAAAAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-03-22T07:20:12.693Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 0,
+              "Title": "AppDbContext.cs",
+              "DocumentMoniker": "C:\\Users\\Public\\token_system\\WebToken\\Models\\AppDbContext.cs",
+              "RelativeDocumentMoniker": "WebToken\\Models\\AppDbContext.cs",
+              "ToolTip": "C:\\Users\\Public\\token_system\\WebToken\\Models\\AppDbContext.cs",
+              "RelativeToolTip": "WebToken\\Models\\AppDbContext.cs",
+              "ViewState": "AQIAAAAAAAAAAAAAAAAAABAAAAAjAAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-03-22T07:21:14.154Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 6,
+              "Title": "YourModel.cs",
+              "DocumentMoniker": "C:\\Users\\Public\\token_system\\WebToken\\Models\\YourModel.cs",
+              "RelativeDocumentMoniker": "WebToken\\Models\\YourModel.cs",
+              "ToolTip": "C:\\Users\\Public\\token_system\\WebToken\\Models\\YourModel.cs",
+              "RelativeToolTip": "WebToken\\Models\\YourModel.cs",
+              "ViewState": "AQIAAAAAAAAAAAAAAAAAAAIAAAAkAAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-03-22T08:05:11.923Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 1,
+              "Title": "appsettings.json",
+              "DocumentMoniker": "C:\\Users\\Public\\token_system\\WebToken\\appsettings.json",
+              "RelativeDocumentMoniker": "WebToken\\appsettings.json",
+              "ToolTip": "C:\\Users\\Public\\token_system\\WebToken\\appsettings.json",
+              "RelativeToolTip": "WebToken\\appsettings.json",
+              "ViewState": "AQIAAAAAAAAAAAAAAAAAAA8AAAAtAAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.001642|",
+              "WhenOpened": "2025-03-22T06:58:47.417Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 2,
+              "Title": "Program.cs",
+              "DocumentMoniker": "C:\\Users\\Public\\token_system\\WebToken\\Program.cs",
+              "RelativeDocumentMoniker": "WebToken\\Program.cs",
+              "ToolTip": "C:\\Users\\Public\\token_system\\WebToken\\Program.cs",
+              "RelativeToolTip": "WebToken\\Program.cs",
+              "ViewState": "AQIAAEUAAAAAAAAAAAAAAEoAAAAAAAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-03-22T07:22:12.941Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 5,
+              "Title": "TokenResponse.cs",
+              "DocumentMoniker": "C:\\Users\\Public\\token_system\\WebToken\\Models\\TokenResponse.cs",
+              "RelativeDocumentMoniker": "WebToken\\Models\\TokenResponse.cs",
+              "ToolTip": "C:\\Users\\Public\\token_system\\WebToken\\Models\\TokenResponse.cs",
+              "RelativeToolTip": "WebToken\\Models\\TokenResponse.cs",
+              "ViewState": "AQIAAAAAAAAAAAAAAAAAAAgAAAAAAAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-03-22T08:51:53.386Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 7,
+              "Title": "AuthService.cs",
+              "DocumentMoniker": "C:\\Users\\Public\\token_system\\WebToken\\Services\\AuthService.cs",
+              "RelativeDocumentMoniker": "WebToken\\Services\\AuthService.cs",
+              "ToolTip": "C:\\Users\\Public\\token_system\\WebToken\\Services\\AuthService.cs",
+              "RelativeToolTip": "WebToken\\Services\\AuthService.cs",
+              "ViewState": "AQIAAAAAAAAAAAAAAAAAAAAAAAAAAAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-03-22T08:02:32.155Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 9,
+              "Title": "AuthController.cs",
+              "DocumentMoniker": "C:\\Users\\Public\\token_system\\WebToken\\Controllers\\AuthController.cs",
+              "RelativeDocumentMoniker": "WebToken\\Controllers\\AuthController.cs",
+              "ToolTip": "C:\\Users\\Public\\token_system\\WebToken\\Controllers\\AuthController.cs",
+              "RelativeToolTip": "WebToken\\Controllers\\AuthController.cs",
+              "ViewState": "AQIAAAAAAAAAAAAAAAAAAAAAAAAAAAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-03-22T08:08:42.705Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 10,
+              "Title": "HomeController.cs",
+              "DocumentMoniker": "C:\\Users\\Public\\token_system\\WebToken\\Controllers\\HomeController.cs",
+              "RelativeDocumentMoniker": "WebToken\\Controllers\\HomeController.cs",
+              "ToolTip": "C:\\Users\\Public\\token_system\\WebToken\\Controllers\\HomeController.cs",
+              "RelativeToolTip": "WebToken\\Controllers\\HomeController.cs",
+              "ViewState": "AQIAAAAAAAAAAAAAAAAAAAAAAAAAAAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-03-22T08:08:30.534Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 11,
+              "Title": "registerController.cs",
+              "DocumentMoniker": "C:\\Users\\Public\\token_system\\WebToken\\Controllers\\registerController.cs",
+              "RelativeDocumentMoniker": "WebToken\\Controllers\\registerController.cs",
+              "ToolTip": "C:\\Users\\Public\\token_system\\WebToken\\Controllers\\registerController.cs",
+              "RelativeToolTip": "WebToken\\Controllers\\registerController.cs",
+              "ViewState": "AQIAAAAAAAAAAAAAAAAAAAAAAAAAAAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-03-22T08:08:21.794Z",
+              "EditorCaption": ""
+            }
+          ]
+        }
+      ]
+    }
+  ]
+}
