@@ -1,3 +1,4 @@
+using WebToken.Models;
 using Microsoft.Extensions.Configuration;
 using Microsoft.IdentityModel.Tokens;
 using System;
@@ -7,56 +8,61 @@ using System.Text;
 
 namespace WebToken.Services
 {
-  public class TokenService
-{
-    private readonly IConfiguration _configuration;
-
-    public TokenService(IConfiguration configuration)
+    public class TokenService
     {
-        _configuration = configuration;
-    }
+        private readonly IConfiguration _configuration;
+        private readonly AppDbContext _dbContext;
 
-    public TokenResponse GenerateToken(string username)
-    {
-        var jwtSettings = _configuration.GetSection("Jwt");
-        var key = Encoding.UTF8.GetBytes(jwtSettings["Key"]);
-        var tokenExpirationInSeconds = 30;
-        var tokenExpiration = TimeSpan.FromSeconds(tokenExpirationInSeconds);
-
-        var claims = new[]
+        public TokenService(IConfiguration configuration, AppDbContext dbContext)
         {
-            new Claim(JwtRegisteredClaimNames.Sub, username),
-            new Claim(JwtRegisteredClaimNames.Jti, Guid.NewGuid().ToString())
-        };
+            _configuration = configuration;
+            _dbContext = dbContext;
+        }
 
-        var creds = new SigningCredentials(new SymmetricSecurityKey(key), SecurityAlgorithms.HmacSha256);
-
-        var token = new JwtSecurityToken(
-            issuer: jwtSettings["Issuer"],
-            audience: jwtSettings["Audience"],
-            claims: claims,
-            expires: DateTime.UtcNow.Add(tokenExpiration),
-            signingCredentials: creds);
-
-        var tokenString = new JwtSecurityTokenHandler().WriteToken(token);
-
-        return new TokenResponse
+        public TokenResponse GenerateToken(string username)
         {
-            Token = tokenString,
-            TokenSuresi = tokenExpiration.TotalSeconds,
-            TokenKalanSure = tokenExpiration.TotalSeconds,
-            TokenGecerliMi = true,
-            IslemYapabilirMi = true
-        };
-    }
-}
+            var jwtSettings = _configuration.GetSection("Jwt");
+            var key = Encoding.UTF8.GetBytes(jwtSettings["Key"]);
+            var tokenExpirationInSeconds = 30;
+            var tokenExpiration = TimeSpan.FromSeconds(tokenExpirationInSeconds);
 
-    public class TokenResponse
-    {
-        public string Token { get; set; }
-        public double TokenSuresi { get; set; }
-        public double TokenKalanSure { get; set; }
-        public bool TokenGecerliMi { get; set; }
-        public bool IslemYapabilirMi { get; set; }
+            var claims = new[]
+            {
+                new Claim(JwtRegisteredClaimNames.Sub, username),
+                new Claim(JwtRegisteredClaimNames.Jti, Guid.NewGuid().ToString())
+            };
+
+            var creds = new SigningCredentials(new SymmetricSecurityKey(key), SecurityAlgorithms.HmacSha256);
+
+            var token = new JwtSecurityToken(
+                issuer: jwtSettings["Issuer"],
+                audience: jwtSettings["Audience"],
+                claims: claims,
+                expires: DateTime.UtcNow.Add(tokenExpiration),
+                signingCredentials: creds);
+
+            var tokenString = new JwtSecurityTokenHandler().WriteToken(token);
+
+            // Token verilerini veritabanýna kaydet
+            var tokenData = new TokenData
+            {
+                Token = tokenString,
+                CreatedAt = DateTime.UtcNow,
+                Expiration = DateTime.UtcNow.Add(tokenExpiration),
+                Username = username
+            };
+
+            _dbContext.TokenDatas.Add(tokenData);
+            _dbContext.SaveChanges();
+
+            return new TokenResponse
+            {
+                Token = tokenString,
+                TokenSuresi = tokenExpiration.TotalSeconds,
+                TokenKalanSure = tokenExpiration.TotalSeconds,
+                TokenGecerliMi = true,
+                IslemYapabilirMi = true
+            };
+        }
     }
 }

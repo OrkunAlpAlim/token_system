@@ -1,12 +1,16 @@
 using Microsoft.AspNetCore.Authentication.JwtBearer;
+using Microsoft.AspNetCore.Identity;
+using Microsoft.Extensions.DependencyInjection;
 using Microsoft.IdentityModel.Tokens;
 using System.Text;
 using WebToken.Services;
+using WebToken.Models;
+using Microsoft.EntityFrameworkCore;
 
 var builder = WebApplication.CreateBuilder(args);
 
+// JWT ayarlarý
 var jwtSettings = builder.Configuration.GetSection("Jwt");
-
 var jwtKey = jwtSettings["Key"];
 if (string.IsNullOrEmpty(jwtKey))
 {
@@ -31,8 +35,18 @@ builder.Services.AddAuthentication(JwtBearerDefaults.AuthenticationScheme)
             ClockSkew = TimeSpan.Zero
         };
     });
-    
-builder.Services.AddScoped<TokenService>();
+
+// SQLite Baðlantý Dizesi
+var connectionString = builder.Configuration.GetConnectionString("SQLite");
+builder.Services.AddDbContext<AppDbContext>(options =>
+    options.UseSqlite(connectionString));
+
+// Identity ve Entity Framework (SQL) ayarlarý
+builder.Services.AddIdentity<IdentityUser, IdentityRole>()
+    .AddEntityFrameworkStores<AppDbContext>()
+    .AddDefaultTokenProviders();
+
+// MVC ve Controller hizmetlerini ekleyin
 builder.Services.AddControllersWithViews();
 builder.Services.AddControllers();
 
@@ -56,4 +70,5 @@ app.MapControllerRoute(
     pattern: "{controller=Home}/{action=Index}/{id?}");
 
 app.MapControllers();
+
 app.Run();
