@@ -1,1 +1,28 @@
-<p>hkedbwasjlkşldvkbnfdsm</p>
+@{
+    ViewData["Title"] = "Register Page";
+}
+
+
+<div
+    class="h-screen w-full bg-gradient-to-r from-purple-900 to-pink-900 flex justify-center items-center flex-col ">
+ <form id="userForm">
+    <div
+        class="h-96 w-96 bg-white/40 backdrop-filter backdrop-blur rounded-lg  flex justify-center items-center grid grid-rows-3 gap-4 ">
+       
+            <div class=" grid grid-rows-2 gap-4 row-span-2 w-50 mt-5">
+                <input type="text" name="Name" id="Name" class="bg-white p-1  text-sm" placeholder="Name" required>
+                <input type="text" name="Surname" id="Surname" class="bg-white p-1 text-sm"
+                    placeholder="Surname" required>
+            
+                 <input type="text" name="Username" id="username" class="bg-white p-1  text-sm" placeholder="Username " required>
+                <input type="password" name="Password" id="password" class="bg-white p-1 text-sm"
+                    placeholder="Password" required>
+            </div>
+            <div class="  row-span-1 flex justify-center items-center mb-5">
+                <button type="submit" class="bg-green-900 px-6 py-1 text-white rounded-full">Sign Up</button>
+            </div>
+       
+    </div>
+     </form>
+    <p id="result" class="text-white text-md text-center w-1/2"></p>
+</div>
