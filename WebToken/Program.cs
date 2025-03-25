@@ -5,6 +5,10 @@ using WebToken.Services;
 
 var builder = WebApplication.CreateBuilder(args);
 
+<<<<<<< Updated upstream
+=======
+// JWT ayarları
+>>>>>>> Stashed changes
 var jwtSettings = builder.Configuration.GetSection("Jwt");
 
 var jwtKey = jwtSettings["Key"];
@@ -31,8 +35,26 @@ builder.Services.AddAuthentication(JwtBearerDefaults.AuthenticationScheme)
             ClockSkew = TimeSpan.Zero
         };
     });
+<<<<<<< Updated upstream
     
 builder.Services.AddScoped<TokenService>();
+=======
+
+// SQLite Bağlantı Dizesi
+var connectionString = builder.Configuration.GetConnectionString("SQLite");
+builder.Services.AddDbContext<AppDbContext>(options =>
+    options.UseSqlite(connectionString));
+
+// Identity ve Entity Framework (SQL) ayarları
+builder.Services.AddIdentity<IdentityUser, IdentityRole>()
+    .AddEntityFrameworkStores<AppDbContext>()
+    .AddDefaultTokenProviders();
+
+// TokenService servisini DI konteynerine ekle
+builder.Services.AddScoped<TokenService>();
+
+// MVC ve Controller hizmetlerini ekleyin
+>>>>>>> Stashed changes
 builder.Services.AddControllersWithViews();
 builder.Services.AddControllers();
 
