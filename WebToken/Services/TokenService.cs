@@ -23,10 +23,10 @@ namespace WebToken.Services
         {
             var jwtSettings = _configuration.GetSection("Jwt");
             var key = Encoding.UTF8.GetBytes(jwtSettings["Key"]);
-            var tokenExpirationInSeconds = 30;
+            var tokenExpirationInSeconds = int.Parse(jwtSettings["TokenExpirationInSeconds"]);
             var tokenExpiration = TimeSpan.FromSeconds(tokenExpirationInSeconds);
 
-            var claims = new[]
+            var claims = new[] 
             {
                 new Claim(JwtRegisteredClaimNames.Sub, username),
                 new Claim(JwtRegisteredClaimNames.Jti, Guid.NewGuid().ToString())
@@ -43,7 +43,6 @@ namespace WebToken.Services
 
             var tokenString = new JwtSecurityTokenHandler().WriteToken(token);
 
-            // Token verilerini veritabanýna kaydet
             var tokenData = new TokenData
             {
                 Token = tokenString,
@@ -61,7 +60,8 @@ namespace WebToken.Services
                 TokenSuresi = tokenExpiration.TotalSeconds,
                 TokenKalanSure = tokenExpiration.TotalSeconds,
                 TokenGecerliMi = true,
-                IslemYapabilirMi = true
+                IslemYapabilirMi = true,
+                TokenIssuedAt = DateTime.UtcNow
             };
         }
     }
