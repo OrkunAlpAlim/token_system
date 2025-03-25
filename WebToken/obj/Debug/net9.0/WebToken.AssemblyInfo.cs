@@ -13,7 +13,7 @@ using System.Reflection;
 [assembly: System.Reflection.AssemblyCompanyAttribute("WebToken")]
 [assembly: System.Reflection.AssemblyConfigurationAttribute("Debug")]
 [assembly: System.Reflection.AssemblyFileVersionAttribute("1.0.0.0")]
-[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0+21f3de82686a915f0bd1430f7351a877d7b200b6")]
+[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0+1ad39616bcfae917ab2273740b0df39a89a412e2")]
 [assembly: System.Reflection.AssemblyProductAttribute("WebToken")]
 [assembly: System.Reflection.AssemblyTitleAttribute("WebToken")]
 [assembly: System.Reflection.AssemblyVersionAttribute("1.0.0.0")]

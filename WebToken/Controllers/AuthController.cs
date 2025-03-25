@@ -18,16 +18,35 @@ namespace WebToken.Controllers
             _tokenService = tokenService;
         }
 
+        private static readonly List<UserModel> _users = new List<UserModel>
+        {
+            new UserModel { Name = "Test", Surname = "User", Username = "testuser", Password = "password123" },
+            new UserModel { Name = "Admin", Surname = "User", Username = "admin", Password = "admin123" }
+        };
+
+        [HttpPost("register")]
+        public IActionResult Register([FromBody] RegisterModel model)
+        {
+            if (_users.Any(u => u.Username == model.Username))
+                return BadRequest("Bu kullanıcı adı zaten kullanılıyor.");
+
+            var newUser = new UserModel
+            {
+                Name = model.Name,
+                Surname = model.Surname,
+                Username = model.Username,
+                Password = model.Password
+            };
+
+            _users.Add(newUser);
+
+            return Ok("Kullanıcı başarıyla oluşturuldu.");
+        }
+
         [HttpPost("login")]
         public IActionResult Login([FromBody] LoginModel model)
         {
-            var users = new List<LoginModel>
-    {
-        new LoginModel { Username = "testuser", Password = "password123" },
-        new LoginModel { Username = "admin", Password = "admin123" }
-    };
-
-            var user = users.FirstOrDefault(u => u.Username == model.Username && u.Password == model.Password);
+            var user = _users.FirstOrDefault(u => u.Username == model.Username && u.Password == model.Password);
             if (user == null)
                 return Unauthorized("Geçersiz kullanıcı adı veya şifre.");
 
@@ -39,13 +58,12 @@ namespace WebToken.Controllers
             return Ok(new
             {
                 Token = tokenResponse.Token,
-                TokenSuresi = tokenResponse.TokenSuresi.ToString("F2"), 
+                TokenSuresi = tokenResponse.TokenSuresi.ToString("F2"),
                 TokenKalanSure = remainingTime.ToString("F2"),
                 TokenGecerliligi = tokenResponse.TokenGecerliMi,
                 IslemYapabilmeYetkisi = tokenResponse.IslemYapabilirMi
             });
         }
-
 
         [HttpGet("token-info")]
         public IActionResult GetTokenInfo([FromHeader] string Authorization)
@@ -70,16 +88,28 @@ namespace WebToken.Controllers
 
             return Ok(new
             {
-                TokenSuresi = tokenSuresi.ToString("F2"), 
-                TokenKalanSure = remainingTime.ToString("F2"), 
+                TokenSuresi = tokenSuresi.ToString("F2"),
+                TokenKalanSure = remainingTime.ToString("F2"),
                 TokenGecerliligi = isTokenValid,
                 IslemYapabilmeYetkisi = hasAccess
             });
         }
+    }
 
+    public class UserModel
+    {
+        public string Name { get; set; }
+        public string Surname { get; set; }
+        public string Username { get; set; }
+        public string Password { get; set; }
+    }
 
-
-
+    public class RegisterModel
+    {
+        public string Name { get; set; }
+        public string Surname { get; set; }
+        public string Username { get; set; }
+        public string Password { get; set; }
     }
 
     public class LoginModel
