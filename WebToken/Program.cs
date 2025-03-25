@@ -9,7 +9,7 @@ using Microsoft.EntityFrameworkCore;
 
 var builder = WebApplication.CreateBuilder(args);
 
-// JWT ayarlarý
+// JWT ayarlarï¿½
 var jwtSettings = builder.Configuration.GetSection("Jwt");
 var jwtKey = jwtSettings["Key"];
 if (string.IsNullOrEmpty(jwtKey))
@@ -36,15 +36,17 @@ builder.Services.AddAuthentication(JwtBearerDefaults.AuthenticationScheme)
         };
     });
 
-// SQLite Baðlantý Dizesi
+// SQLite Baï¿½lantï¿½ Dizesi
 var connectionString = builder.Configuration.GetConnectionString("SQLite");
 builder.Services.AddDbContext<AppDbContext>(options =>
     options.UseSqlite(connectionString));
 
-// Identity ve Entity Framework (SQL) ayarlarý
+// Identity ve Entity Framework (SQL) ayarlarï¿½
 builder.Services.AddIdentity<IdentityUser, IdentityRole>()
     .AddEntityFrameworkStores<AppDbContext>()
     .AddDefaultTokenProviders();
+    
+builder.Services.AddScoped<TokenService>();  // TokenService'i ekliyoruz
 
 // MVC ve Controller hizmetlerini ekleyin
 builder.Services.AddControllersWithViews();
