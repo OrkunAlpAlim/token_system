@@ -42,7 +42,7 @@ namespace WebToken.Controllers
             var newUser = new IdentityUser
             {
                 UserName = model.Username,
-                Email = $"{model.Username}@example.com" 
+                Email = $"{model.Username}@example.com"
             };
 
             var result = await _userManager.CreateAsync(newUser, model.Password);
@@ -74,32 +74,35 @@ namespace WebToken.Controllers
 
 
         [HttpPost("login")]
-public async Task<IActionResult> Login([FromBody] LoginModel model)
-{
+        public async Task<IActionResult> Login([FromBody] LoginModel model)
+        {
 
-    var user = await _userManager.FindByNameAsync(model.Username);
-    
-    if (user == null)
-        return Unauthorized("Geçersiz kullanıcı adı veya şifre.");
+            var user = await _userManager.FindByNameAsync(model.Username);
 
-    var isPasswordValid = await _userManager.CheckPasswordAsync(user, model.Password);
-    if (!isPasswordValid)
-        return Unauthorized("Geçersiz kullanıcı adı veya şifre.");
+            if (user == null)
+                return Unauthorized("Geçersiz kullanıcı adı veya şifre.");
 
-    var tokenResponse = _tokenService.GenerateToken(user.UserName);
-    var remainingTime = tokenResponse.TokenKalanSure;
-    if (remainingTime < 0)
-        remainingTime = 0;
+            var isPasswordValid = await _userManager.CheckPasswordAsync(user, model.Password);
+            if (!isPasswordValid)
+                return Unauthorized("Geçersiz kullanıcı adı veya şifre.");
 
-    return Ok(new
-    {
-        Token = tokenResponse.Token,
-        TokenSuresi = tokenResponse.TokenSuresi.ToString("F2"),
-        TokenKalanSure = remainingTime.ToString("F2"),
-        TokenGecerliligi = tokenResponse.TokenGecerliMi,
-        IslemYapabilmeYetkisi = tokenResponse.IslemYapabilirMi
-    });
-}
+            var tokenResponse = _tokenService.GenerateToken(user.UserName);
+            var remainingTime = tokenResponse.TokenKalanSure;
+            if (remainingTime < 0)
+                remainingTime = 0;
+
+            return Ok(new
+            {
+                KullaniciAdi = user.UserName,        
+                Ad = user.UserName,                  
+                Soyad = user.UserName,               
+                Token = tokenResponse.Token,
+                TokenSuresi = tokenResponse.TokenSuresi.ToString("F2"),
+                TokenKalanSure = remainingTime.ToString("F2"),
+                TokenGecerliligi = tokenResponse.TokenGecerliMi,
+                IslemYapabilmeYetkisi = tokenResponse.IslemYapabilirMi
+            });
+        }
 
 
         [HttpGet("token-info")]
