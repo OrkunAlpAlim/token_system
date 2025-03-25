@@ -6,6 +6,7 @@ using System.IdentityModel.Tokens.Jwt;
 using System;
 using Microsoft.AspNetCore.Identity;
 using System.Threading.Tasks;
+using Microsoft.Extensions.Configuration;
 
 namespace WebToken.Controllers
 {
@@ -15,11 +16,13 @@ namespace WebToken.Controllers
     {
         private readonly TokenService _tokenService;
         private readonly UserManager<IdentityUser> _userManager;
+        private readonly IConfiguration _configuration;
 
-        public AuthController(TokenService tokenService, UserManager<IdentityUser> userManager)
+        public AuthController(TokenService tokenService, UserManager<IdentityUser> userManager, IConfiguration configuration)
         {
             _tokenService = tokenService;
             _userManager = userManager;
+            _configuration = configuration;
         }
 
         private static readonly List<UserModel> users = new List<UserModel>
@@ -87,17 +90,22 @@ namespace WebToken.Controllers
                 return Unauthorized("Geçersiz kullanıcı adı veya şifre.");
 
             var tokenResponse = _tokenService.GenerateToken(user.UserName);
-            var remainingTime = tokenResponse.TokenKalanSure;
+
+            var jwtSettings = _configuration.GetSection("Jwt");
+            var tokenExpirationInSeconds = int.Parse(jwtSettings["TokenExpirationInSeconds"]);
+
+            var expiration = tokenResponse.TokenSuresi;
+            var remainingTime = expiration - (DateTime.UtcNow - tokenResponse.TokenIssuedAt).TotalSeconds;
             if (remainingTime < 0)
                 remainingTime = 0;
 
             return Ok(new
             {
-                KullaniciAdi = user.UserName,        
-                Ad = user.UserName,                  
-                Soyad = user.UserName,               
+                KullaniciAdi = user.UserName,
+                Ad = user.UserName,
+                Soyad = user.UserName,
                 Token = tokenResponse.Token,
-                TokenSuresi = tokenResponse.TokenSuresi.ToString("F2"),
+                TokenSuresi = tokenExpirationInSeconds.ToString("F2"),
                 TokenKalanSure = remainingTime.ToString("F2"),
                 TokenGecerliligi = tokenResponse.TokenGecerliMi,
                 IslemYapabilmeYetkisi = tokenResponse.IslemYapabilirMi
@@ -118,7 +126,8 @@ namespace WebToken.Controllers
             var expiration = token.ValidTo;
             var issuedAt = token.ValidFrom;
             var currentTime = DateTime.UtcNow;
-            var tokenSuresi = (expiration - issuedAt).TotalSeconds;
+            var jwtSettings = _configuration.GetSection("Jwt");
+            var tokenExpirationInSeconds = int.Parse(jwtSettings["TokenExpirationInSeconds"]);
             var remainingTime = (expiration - currentTime).TotalSeconds;
             if (remainingTime < 0)
                 remainingTime = 0;
@@ -128,7 +137,7 @@ namespace WebToken.Controllers
 
             return Ok(new
             {
-                TokenSuresi = tokenSuresi.ToString("F2"),
+                TokenSuresi = tokenExpirationInSeconds.ToString("F2"),
                 TokenKalanSure = remainingTime.ToString("F2"),
                 TokenGecerliligi = isTokenValid,
                 IslemYapabilmeYetkisi = hasAccess
