@@ -7,6 +7,8 @@ using System;
 using Microsoft.AspNetCore.Identity;
 using System.Threading.Tasks;
 using Microsoft.Extensions.Configuration;
+using WebToken.Models;
+
 
 namespace WebToken.Controllers
 {
@@ -15,21 +17,16 @@ namespace WebToken.Controllers
     public class AuthController : ControllerBase
     {
         private readonly TokenService _tokenService;
-        private readonly UserManager<IdentityUser> _userManager;
+        private readonly UserManager<ApplicationUser> _userManager;
         private readonly IConfiguration _configuration;
 
-        public AuthController(TokenService tokenService, UserManager<IdentityUser> userManager, IConfiguration configuration)
+        public AuthController(TokenService tokenService, UserManager<ApplicationUser> userManager, IConfiguration configuration)
         {
             _tokenService = tokenService;
             _userManager = userManager;
             _configuration = configuration;
         }
 
-        private static readonly List<UserModel> users = new List<UserModel>
-        {
-            new UserModel { Name = "Test", Surname = "User", Username = "testuser", Password = "password123" },
-            new UserModel { Name = "Admin", Surname = "User", Username = "admin", Password = "admin123" }
-        };
 
         [HttpPost("register")]
         public async Task<IActionResult> Register([FromBody] RegisterModel model)
@@ -42,7 +39,7 @@ namespace WebToken.Controllers
             if (passwordErrors.Any())
                 return BadRequest(new { Errors = passwordErrors });
 
-            var newUser = new IdentityUser
+            var newUser = new ApplicationUser
             {
                 UserName = model.Username,
                 Email = $"{model.Username}@example.com"

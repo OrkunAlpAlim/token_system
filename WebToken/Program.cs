@@ -1,29 +1,21 @@
 using Microsoft.AspNetCore.Authentication.JwtBearer;
 using Microsoft.AspNetCore.Identity;
-using Microsoft.Extensions.DependencyInjection;
+using Microsoft.EntityFrameworkCore;
 using Microsoft.IdentityModel.Tokens;
 using System.Text;
-using WebToken.Services;
 using WebToken.Models;
-using Microsoft.EntityFrameworkCore;
+using WebToken.Services;
 
 var builder = WebApplication.CreateBuilder(args);
 
-// JWT ayarlar�
+// JWT ayarları
 var jwtSettings = builder.Configuration.GetSection("Jwt");
-var jwtKey = jwtSettings["Key"];
-if (string.IsNullOrEmpty(jwtKey))
-{
-    throw new Exception("JWT Key is missing in appsettings.json!");
-}
-
+var jwtKey = jwtSettings["Key"] ?? throw new Exception("JWT key is missing!");
 var key = Encoding.UTF8.GetBytes(jwtKey);
 
 builder.Services.AddAuthentication(JwtBearerDefaults.AuthenticationScheme)
     .AddJwtBearer(options =>
     {
-        options.RequireHttpsMetadata = false;
-        options.SaveToken = true;
         options.TokenValidationParameters = new TokenValidationParameters
         {
             ValidateIssuerSigningKey = true,
@@ -36,24 +28,35 @@ builder.Services.AddAuthentication(JwtBearerDefaults.AuthenticationScheme)
         };
     });
 
-// SQLite Ba�lant� Dizesi
+// SQLite bağlantısı
 var connectionString = builder.Configuration.GetConnectionString("SQLite");
 builder.Services.AddDbContext<AppDbContext>(options =>
     options.UseSqlite(connectionString));
 
-// Identity ve Entity Framework (SQL) ayarlar�
-builder.Services.AddIdentity<IdentityUser, IdentityRole>()
-    .AddEntityFrameworkStores<AppDbContext>()
-    .AddDefaultTokenProviders();
-    
-builder.Services.AddScoped<TokenService>();  // TokenService'i ekliyoruz
+// Identity konfigürasyonu
+builder.Services.AddIdentity<ApplicationUser, IdentityRole>(options =>
+{
+    options.Password.RequireDigit = true;
+    options.Password.RequireLowercase = true;
+    options.Password.RequireUppercase = true;
+    options.Password.RequireNonAlphanumeric = true;
+    options.Password.RequiredLength = 6;
+})
+.AddEntityFrameworkStores<AppDbContext>()
+.AddDefaultTokenProviders();
 
-// MVC ve Controller hizmetlerini ekleyin
+
+
+// Servisler
+builder.Services.AddScoped<TokenService>();
+
+// MVC ve API
 builder.Services.AddControllersWithViews();
 builder.Services.AddControllers();
 
 var app = builder.Build();
 
+// Middleware pipeline
 if (!app.Environment.IsDevelopment())
 {
     app.UseExceptionHandler("/Home/Error");

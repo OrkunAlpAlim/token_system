@@ -1,16 +1,16 @@
-﻿namespace WebToken.Models
+﻿using Microsoft.AspNetCore.Identity.EntityFrameworkCore;
+using Microsoft.EntityFrameworkCore;
+
+namespace WebToken.Models
 {
-    using Microsoft.AspNetCore.Identity.EntityFrameworkCore;
-    using Microsoft.EntityFrameworkCore;
-    using Microsoft.AspNetCore.Identity;
+// AppDbContext.cs
+public class AppDbContext : IdentityDbContext<ApplicationUser>
+{
+    public AppDbContext(DbContextOptions<AppDbContext> options) : base(options) { }
 
-    public class AppDbContext : IdentityDbContext<IdentityUser>
-    {
-        public AppDbContext(DbContextOptions<AppDbContext> options) : base(options) { }
+    public DbSet<TokenData> TokenDatas { get; set; }
+}
 
-        // TokenData DbSet'i burada tanımlanır
-        public DbSet<TokenData> TokenDatas { get; set; }
-    }
 
     public class TokenData
     {
@@ -20,5 +20,4 @@
         public DateTime Expiration { get; set; }
         public string Username { get; set; }
     }
-
 }
